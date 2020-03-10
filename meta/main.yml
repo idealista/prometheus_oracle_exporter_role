@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  company: Idealista S.A.U.
+  description: Prometheus Oracle Exporter Role
+  min_ansible_version: 2.2
+  license: Apache 2.0
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+  categories:
+    - monitoring

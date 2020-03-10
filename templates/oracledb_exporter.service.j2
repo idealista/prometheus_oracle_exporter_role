@@ -1,0 +1,23 @@
+{{ ansible_managed | comment }}
+[Unit]
+Description=prometheus oracle exporter
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+PrivateTmp={{ private_tmp_service }}
+User={{ oracle_exporter_user }}
+Group={{ oracle_exporter_group }}
+RuntimeDirectory=oracledb_exporter
+
+Environment="DATA_SOURCE_NAME={{ oracle_exporter_data_source }}" "LD_LIBRARY_PATH={{ oracle_instant_client_path }}"
+ExecStart={{ oracle_exporter_bin_path }}/oracledb_exporter {% for option in oracle_exporter_options %}{% if option %}-{{ option }} {% endif %}{% endfor %}
+
+StandardOutput={{ oracle_exporter_log_output }}
+StandardError={{ oracle_exporter_log_output }}
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+ 
+---
+
+- src: https://github.com/idealista/oracle_instant_client_role
+  version: 1.0.0
+  name: oracle_instant_client_role

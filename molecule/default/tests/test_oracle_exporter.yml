@@ -1,0 +1,60 @@
+---
+
+service:
+  oracledb_exporter:
+    enabled: true
+    running: true 
+port:
+# Check port at IPv6
+# https://github.com/aelsabbahy/goss/issues/177
+  tcp6:{{ oracle_exporter_port[-4:] }}:
+    listening: true
+    ip:
+    - '::'
+command:
+  test-metrics:
+    exit-status: 0
+    exec: "curl -s localhost:9161/metrics | grep oracledb_test_value_1 | tail -n 1" 
+    stdout:
+      - oracledb_test_value_1 1
+user:
+  {{ oracle_exporter_user }}:
+    exists: true
+    groups:
+      - {{ oracle_exporter_group }}
+    shell: /usr/sbin/nologin
+group:
+  {{ oracle_exporter_group }}:
+    exists: true
+file:
+  {{ oracle_exporter_bin_path }}:
+    owner: {{ oracle_exporter_user }}
+    group: {{ oracle_exporter_group }}
+    exists: true
+    filetype: directory
+file:
+  {{ oracle_exporter_metrics_path }}:
+    owner: {{ oracle_exporter_user }}
+    group: {{ oracle_exporter_group }}
+    exists: true
+    filetype: directory
+file:
+  {{ oracle_exporter_installed_version }}:
+    owner: {{ oracle_exporter_user }}
+    group: {{ oracle_exporter_group }}
+    exists: true
+    filetype: file
+{% if oracle_exporter_log_path is defined %}
+file:
+  {{ oracle_exporter_log_path }}:
+    owner: {{ oracle_exporter_user }}
+    group: {{ oracle_exporter_group }}
+    exists: true
+    filetype: directory
+file:
+  {{ oracle_exporter_log_path }}/{{ oracle_exporter_log_file }}:
+    owner: root
+    group: root
+    exists: true
+    filetype: file
+{% endif %}

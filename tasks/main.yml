@@ -1,0 +1,16 @@
+---
+
+- name: ORACLE_EXPORTER | Install
+  include: install.yml
+  tags:
+    - oracle_exporter_install
+
+- name: ORACLE_EXPORTER | Configure
+  include: config.yml
+  tags:
+    - oracle_exporter_configure
+
+- name: ORACLE_EXPORTER | Service
+  include: service.yml
+  tags:
+    - oracle_exporter_service

@@ -1,0 +1,58 @@
+---
+## General
+oracle_exporter_version: 0.2.6
+exporter_instant_client_version: 18.5
+oracle_exporter_release_system: linux-amd64
+
+# Package paths
+oracle_exporter_release_name: "oracledb_exporter.{{ oracle_exporter_version }}-ora{{ exporter_instant_client_version }}.{{ oracle_exporter_release_system }}"
+oracle_exporter_package: "{{ oracle_exporter_release_name }}.tar.gz"
+oracle_exporter_url: "https://github.com/iamseth/oracledb_exporter/releases/download/{{ oracle_exporter_version }}/{{ oracle_exporter_package }}"
+oracle_exporter_download_path: /usr/src
+oracle_exporter_package_path: "{{ oracle_exporter_download_path }}/{{ oracle_exporter_package }}"
+oracle_exporter_src_bin: "{{ oracle_exporter_download_path }}/{{ oracle_exporter_release_name }}/oracledb_exporter"
+oracle_exporter_src_metrics: "{{ oracle_exporter_download_path }}/{{ oracle_exporter_release_name }}/default-metrics.toml"
+
+# Set true to force the download and installation of the binary
+oracle_exporter_force_reinstall: false
+
+# Installation path
+oracle_exporter_root_path: /opt/oracle_exporter
+oracle_exporter_bin_path: "{{ oracle_exporter_root_path }}/bin"
+oracle_exporter_metrics_path: "{{ oracle_exporter_root_path }}/metrics"
+oracle_exporter_installed_version: "{{ oracle_exporter_root_path }}/version.txt"
+oracle_exporter_skeleton_paths: 
+  - "{{ oracle_exporter_bin_path }}"
+  - "{{ oracle_exporter_metrics_path }}"
+
+oracle_instant_client_path: /opt/oracle/instantclient
+  
+## Service options
+# Owner
+oracle_exporter_user: prometheus
+oracle_exporter_group: prometheus
+
+# start on boot
+oracle_exporter_service_enabled: True
+# current state: started, stopped
+oracle_exporter_service_state: started
+
+# Logs
+# oracle_exporter_log_path: /var/log/oracledb_exporter
+# oracle_exporter_log_file: oracledb_exporter.log
+oracle_exporter_log_output: journal
+# If you need output to a file, you can use file:{{ oracle_exporter_log_path }}/{{ oracle_exporter_log_file }}, append:..., rsyslog and other
+# options in Debian 10 (see https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
+
+# Flags (https://github.com/iamseth/oracledb_exporter#usage)
+oracle_exporter_data_source: user/password@//myhost:1521/service # This value needs to be overwritten in most cases. This is not passed as a flag but with an environment variable. 
+oracle_exporter_log_level: warn #[debug, info, warn, error, fatal].
+oracle_exporter_default_metrics: "{{ oracle_exporter_metrics_path }}/default-metrics.toml"
+oracle_exporter_port: 0.0.0.0:9161  
+
+oracle_exporter_options:  
+  - "log.level {{ oracle_exporter_log_level }}"
+  - "default.metrics {{ oracle_exporter_default_metrics }}"
+  - "web.listen-address {{ oracle_exporter_port }}"
+
+private_tmp_service: yes
