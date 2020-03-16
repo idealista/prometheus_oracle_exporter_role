@@ -7,4 +7,5 @@
     owner: "{{ oracle_exporter_user }}"
     group: "{{ oracle_exporter_group }}"
     mode: 0664
+  notify: restart oracle_exporter
   when: oracle_exporter_custom_metrics_path is defined
