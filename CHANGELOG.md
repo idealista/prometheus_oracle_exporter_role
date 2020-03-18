@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/prometheus_oracle_exporter_role/tree/develop)
 
 ### Fixed
+- *[#8](https://github.com/idealista/prometheus_oracle_exporter_role/issues/8) Fix that there was not an option to set up the NLS_LANG environment variable for the service* @pablogcaldito
 - *[#2](https://github.com/idealista/prometheus_oracle_exporter_role/issues/2) Update ansible version from 2.8.6 to 2.8.8* @pablogcaldito
 - *[#7](https://github.com/idealista/prometheus_oracle_exporter_role/issues/7) Fix that service is not restarted when changing the metrics* @pablogcaldito
 
