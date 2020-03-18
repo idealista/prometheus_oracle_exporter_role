@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_oracle_exporter_role/tree/develop)
 
+## [1.1.0](https://github.com/idealista/prometheus_oracle_exporter_role/tree/1.1.0) (2020-03-18)
 ### Fixed
 - *[#6](https://github.com/idealista/prometheus_oracle_exporter_role/issues/6) Add missing reference to oracle instant client role in Readme* @pablogcaldito
 - *[#5](https://github.com/idealista/prometheus_oracle_exporter_role/issues/5) Fix example's version typo in Readme* @pablogcaldito
