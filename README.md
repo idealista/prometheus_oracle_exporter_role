@@ -4,10 +4,6 @@
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.prometheus_oracle_exporter_role-B62682.svg)](https://galaxy.ansible.com/idealista/prometheus_oracle_exporter_role)
 
 
-<!-- This readme is not nearly finished  -->
-
-
-
 # Prometheus Oracle Exporter Ansible role
 
 This ansible role installs a Prometheus Oracle Exporter in a Debian environment.
@@ -29,7 +25,7 @@ These instructions will get you a copy of the role for your Ansible playbook. On
 ### Prerequisities
 
 Ansible 2.8.x.x version installed.
-Inventory destination should be a Debian environment with Oracle Instant Client installed.
+Inventory destination should be a Debian environment with Oracle Instant Client installed. You can install it with this [ansible role](https://github.com/idealista/oracle_instant_client_role).
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
 
@@ -39,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.prometheus_oracle_exporter_role
-  version: 4.0.1
+  version: 1.0.0
   name: prometheus_oracle_exporter
 ```
 
@@ -65,6 +61,8 @@ Look to the [defaults](defaults/main.yml) properties file to see the possible co
 To use custom metrics override the  ```oracle_exporter_custom_metrics_path``` variable with the path to the your custom metrics file.
 
 You will likely want to change the data source, you can do it overriding the ```oracle_exporter_data_source``` variable  (e.g. system/oracle@oracle_database:1521/xe)
+
+Certain metrics need the service to have set up the ```NLS_LANG``` environment variable. You can set its value by defining the ```oracle_exporter_nls_lang``` variable.
 
 ## Testing
 
