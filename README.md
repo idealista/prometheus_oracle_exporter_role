@@ -66,6 +66,8 @@ To use custom metrics override the  ```oracle_exporter_custom_metrics_path``` va
 
 You will likely want to change the data source, you can do it overriding the ```oracle_exporter_data_source``` variable  (e.g. system/oracle@oracle_database:1521/xe)
 
+Certain metrics need the service to have set up the ```NLS_LANG``` environment variable. You can set its value by defining the ```oracle_exporter_nls_lang``` variable.
+
 ## Testing
 
 ### Install dependencies
