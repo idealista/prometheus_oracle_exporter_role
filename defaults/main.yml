@@ -1,6 +1,6 @@
 ---
 ## General
-oracle_exporter_version: 0.2.6
+oracle_exporter_version: 0.2.9
 exporter_instant_client_version: 18.5
 oracle_exporter_release_system: linux-amd64
 
@@ -21,12 +21,12 @@ oracle_exporter_root_path: /opt/oracle_exporter
 oracle_exporter_bin_path: "{{ oracle_exporter_root_path }}/bin"
 oracle_exporter_metrics_path: "{{ oracle_exporter_root_path }}/metrics"
 oracle_exporter_installed_version: "{{ oracle_exporter_root_path }}/version.txt"
-oracle_exporter_skeleton_paths: 
+oracle_exporter_skeleton_paths:
   - "{{ oracle_exporter_bin_path }}"
   - "{{ oracle_exporter_metrics_path }}"
 
 oracle_instant_client_path: /opt/oracle/instantclient
-  
+
 ## Service options
 # Owner
 oracle_exporter_user: prometheus
@@ -49,11 +49,15 @@ oracle_exporter_data_source: user/password@//myhost:1521/service # This value ne
 # oracle_exporter_nls_lang: AMERICAN_AMERICA.WE8ISO8859P1  # this variable if defined is passed as an environment variable. It is needed by some metrics and depends on the database settigns.
 oracle_exporter_log_level: warn #[debug, info, warn, error, fatal].
 oracle_exporter_default_metrics: "{{ oracle_exporter_metrics_path }}/default-metrics.toml"
-oracle_exporter_port: 0.0.0.0:9161  
+oracle_exporter_port: 0.0.0.0:9161
+oracle_exporter_max_open_conns: 10
+oracle_exporter_max_idle_conns: 0
 
 oracle_exporter_options:  
   - "log.level {{ oracle_exporter_log_level }}"
   - "default.metrics {{ oracle_exporter_default_metrics }}"
   - "web.listen-address {{ oracle_exporter_port }}"
+  - "database.maxOpenConns {{ oracle_exporter_max_open_conns }}"
+  - "database.maxIdleConns {{ oracle_exporter_max_idle_conns }}"
 
-private_tmp_service: yes
+oracle_exporter_private_tmp: yes

@@ -5,7 +5,7 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-PrivateTmp={{ private_tmp_service }}
+PrivateTmp={{ oracle_exporter_private_tmp }}
 User={{ oracle_exporter_user }}
 Group={{ oracle_exporter_group }}
 RuntimeDirectory=oracledb_exporter
