@@ -64,6 +64,10 @@ You will likely want to change the data source, you can do it overriding the ```
 
 Certain metrics need the service to have set up the ```NLS_LANG``` environment variable. You can set its value by defining the ```oracle_exporter_nls_lang``` variable.
 
+To change the the maximum number of open connections override ```oracle_exporter_max_open_conns```. The default value is 10.
+
+To change the the maximum number of idle connections override ```oracle_exporter_max_idle_conns```. The default value is 0.
+
 ## Testing
 
 ### Install dependencies
