@@ -1,11 +1,12 @@
 ---
 
-- name: ORACLE_EXPORTER | Replace default metrics by custom metrics 
+- name: ORACLE_EXPORTER | Add custom metrics 
   copy:
-    src: "{{ oracle_exporter_custom_metrics_path }}"
-    dest: "{{ oracle_exporter_default_metrics }}"
+    src: "{{ item }}"
+    dest: "{{ oracle_exporter_metrics_path }}/{{ item }}"
     owner: "{{ oracle_exporter_user }}"
     group: "{{ oracle_exporter_group }}"
     mode: 0664
   notify: restart oracle_exporter
+  with_items: "{{ oracle_exporter_custom_metrics_path }}"
   when: oracle_exporter_custom_metrics_path is defined
