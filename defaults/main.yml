@@ -48,7 +48,7 @@ oracle_exporter_log_output: journal
 oracle_exporter_data_source: user/password@//myhost:1521/service # This value needs to be overwritten in most cases. This is not passed as a flag but with an environment variable. 
 # oracle_exporter_nls_lang: AMERICAN_AMERICA.WE8ISO8859P1  # this variable if defined is passed as an environment variable. It is needed by some metrics and depends on the database settigns.
 oracle_exporter_log_level: warn #[debug, info, warn, error, fatal].
-oracle_exporter_default_metrics: "{{ oracle_exporter_metrics_path }}/default-metrics.toml"
+oracle_exporter_default_metrics_path: "default-metrics.toml"
 oracle_exporter_port: 0.0.0.0:9161  
 oracle_exporter_max_open_conns: 10
 oracle_exporter_max_idle_conns: 0
@@ -59,7 +59,7 @@ oracle_exporter_max_idle_conns: 0
 
 oracle_exporter_options:  
   - "log.level {{ oracle_exporter_log_level }}"
-  - "default.metrics {{ oracle_exporter_default_metrics }}"
+  - "default.metrics {{ oracle_exporter_metrics_path }}/{{ oracle_exporter_default_metrics_path }}"
   - "web.listen-address {{ oracle_exporter_port }}"
   - "database.maxOpenConns {{ oracle_exporter_max_open_conns }}"
   - "database.maxIdleConns {{ oracle_exporter_max_idle_conns }}"
