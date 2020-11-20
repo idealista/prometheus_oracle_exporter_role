@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_oracle_exporter_role/tree/develop)
+
+## [2.0.0](https://github.com/idealista/prometheus_oracle_exporter_role/tree/2.0.0) (2020-11-20)
+[Full Changelog](https://github.com/idealista/prometheus_oracle_exporter_role/compare/2.0.0...1.2.0)
 ### Added
 
 - *[#22](https://github.com/idealista/prometheus_oracle_exporter_role/issues/22) Support for multiple custom metrics files.* @xtianae7
