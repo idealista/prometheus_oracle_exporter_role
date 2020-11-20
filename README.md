@@ -58,7 +58,9 @@ Use in a playbook:
 
 Look to the [defaults](defaults/main.yml) properties file to see the possible configuration properties.
 
-To use custom metrics override the  ```oracle_exporter_custom_metrics_path``` variable with the path to the your custom metrics file.
+To use custom metrics override the  ```oracle_exporter_custom_metrics_path``` variable with the path(s) to the your custom metrics file(s).
+
+By default, default metrics will always be generated, to avoid this, remove ```"default.metrics {{ oracle_exporter_default_metrics }}"``` line from the options variable.
 
 You will likely want to change the data source, you can do it overriding the ```oracle_exporter_data_source``` variable  (e.g. system/oracle@oracle_database:1521/xe)
 
@@ -88,7 +90,7 @@ $ pipenv run molecule test
 
 ![Ansible](https://img.shields.io/badge/ansible-2.8.0.0-green.svg)
 ![Molecule](https://img.shields.io/badge/molecule-2.22.0-green.svg)
-![Goss](https://img.shields.io/badge/goss-0.3.7-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.14-green.svg)
 
 ## Versioning
 

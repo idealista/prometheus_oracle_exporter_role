@@ -12,11 +12,25 @@ port:
     ip:
     - '::'
 command:
-  test-metrics:
+  test-metrics1:
     exit-status: 0
     exec: "curl -s localhost:9161/metrics | grep oracledb_test_value_1 | tail -n 1" 
     stdout:
       - oracledb_test_value_1 1
+    stderr: []
+    timeout: 10000 # in milliseconds
+    skip: false
+
+command:
+  test-metrics2:
+    exit-status: 0
+    exec: "curl -s localhost:9161/metrics | grep oracledb_test_value_3 | tail -n 1" 
+    stdout:
+      - oracledb_test_value_3 3
+    stderr: []    
+    timeout: 10000 # in milliseconds
+    skip: false
+
 user:
   {{ oracle_exporter_user }}:
     exists: true
