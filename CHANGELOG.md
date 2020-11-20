@@ -4,7 +4,20 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_oracle_exporter_role/tree/develop)
+### Added
+
+- *[#22](https://github.com/idealista/prometheus_oracle_exporter_role/issues/22) Support for multiple custom metrics files.* @xtianae7
+
+### Changed
+- *Bumped goss version from 0.3.9 to 0.3.14 .* @xtianae7
+
+### Breaking Changes
+- *[#22](https://github.com/idealista/prometheus_oracle_exporter_role/issues/22) Bumped exporter version to [0.3.0](https://github.com/iamseth/oracledb_exporter/releases/tag/0.3.0rc1).*  @xtianae7
+- *[#22](https://github.com/idealista/prometheus_oracle_exporter_role/issues/22) default-metrics.toml is now copied from files instead of generated from instalation.* @xtianae7
+- *[#22](https://github.com/idealista/prometheus_oracle_exporter_role/issues/22) The variable oracle_exporter_custom_metrics_path is no longer used to overwrite the default-metrics file.* @xtianae7
+
 ## [1.2.0](https://github.com/idealista/prometheus_oracle_exporter_role/tree/1.2.0) (2020-11-12)
+[Full Changelog](https://github.com/idealista/prometheus_oracle_exporter_role/compare/1.1.0...1.2.0)
 ### Added
 - *[#18](https://github.com/idealista/prometheus_oracle_exporter_role/issues/18) Include database.maxOpenConns and database.maxIdleConns flags in the options of the role* @caldito
 

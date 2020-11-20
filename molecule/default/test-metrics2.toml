@@ -1,0 +1,4 @@
+[[metric]]
+context = "test"
+request = "SELECT 3 as value_3, 4 as value_4 FROM DUAL"
+metricsdesc = { value_3 = "Simple example returning always 3.", value_4 = "Same but returning always 4." }
