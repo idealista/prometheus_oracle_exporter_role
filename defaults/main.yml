@@ -1,6 +1,6 @@
 ---
 ## General
-oracle_exporter_version: 0.3.0rc1
+oracle_exporter_version: 0.2.9
 exporter_instant_client_version: 18.5
 oracle_exporter_release_system: linux-amd64
 
@@ -52,10 +52,6 @@ oracle_exporter_default_metrics: "{{ oracle_exporter_metrics_path }}/default-met
 oracle_exporter_port: 0.0.0.0:9161  
 oracle_exporter_max_open_conns: 10
 oracle_exporter_max_idle_conns: 0
-
-# oracle_exporter_custom_metrics_path:
-#   - "custom-metrics1.toml"
-#   - "custom-metrics2.toml"
 
 oracle_exporter_options:  
   - "log.level {{ oracle_exporter_log_level }}"
