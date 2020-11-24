@@ -4,8 +4,7 @@
   vars:
     oracle_exporter_data_source: system/oracle@oracle_database:1521/xe
     oracle_exporter_custom_metrics_path:
-      - "test-metrics1.toml"
-      - "test-metrics2.toml"
+      - "test-metrics.toml"
     oracle_exporter_private_tmp: no
   roles:
     - role: oracle_instant_client_role
