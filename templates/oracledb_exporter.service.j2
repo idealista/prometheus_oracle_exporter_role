@@ -11,7 +11,7 @@ Group={{ oracle_exporter_group }}
 RuntimeDirectory=oracledb_exporter
 
 Environment="DATA_SOURCE_NAME={{ oracle_exporter_data_source }}" {% if oracle_exporter_nls_lang is defined %} "NLS_LANG={{ oracle_exporter_nls_lang }}" {% endif %} "LD_LIBRARY_PATH={{ oracle_instant_client_path }}" 
-ExecStart={{ oracle_exporter_bin_path }}/oracledb_exporter {% if oracle_exporter_custom_metrics_path is defined %}--custom.metrics {% for metric in oracle_exporter_custom_metrics_path %}{{ oracle_exporter_metrics_path }}/{{ metric }}{{ "," if not loop.last }}{% endfor %}{% endif %} {% for option in oracle_exporter_options %}{% if option %}--{{ option }} {% endif %}{% endfor %}
+ExecStart={{ oracle_exporter_bin_path }}/oracledb_exporter {% if oracle_exporter_custom_metrics_path is defined %}--custom.metrics {% for metric in oracle_exporter_custom_metrics_path %}{{ oracle_exporter_metrics_path }}/{{ metric }}{{ ", " if not loop.last }}{% endfor %}{% endif %} {% for option in oracle_exporter_options %}{% if option %}--{{ option }} {% endif %}{% endfor %}
 
 StandardOutput={{ oracle_exporter_log_output }}
 StandardError={{ oracle_exporter_log_output }}
