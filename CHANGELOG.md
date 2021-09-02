@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_oracle_exporter_role/tree/develop)
+
+## [1.3.0](https://github.com/idealista/prometheus_oracle_exporter_role/tree/1.3.0) (2021-09-02)
 ### Added
 - *[#33](https://github.com/idealista/prometheus_oracle_exporter_role/issues/33) Allow to override the default service config file* @vsuarez
 
