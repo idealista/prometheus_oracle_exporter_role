@@ -28,6 +28,7 @@ oracle_exporter_skeleton_paths:
 oracle_instant_client_path: /opt/oracle/instantclient
 
 ## Service options
+oracle_service_template_file: oracledb_exporter.service.j2  # "{{ playbook_dir }}/templates/oracledb_exporter.service.j2"
 # Owner
 oracle_exporter_user: prometheus
 oracle_exporter_group: prometheus

@@ -1,6 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/idealista/prometheus_oracle_exporter_role/master/logo.gif)
 
-[![Build Status](https://travis-ci.org/idealista/prometheus_oracle_exporter_role.png)](https://travis-ci.org/idealista/prometheus_oracle_exporter_role)
+[![Build Status](https://travis-ci.com/idealista/prometheus_oracle_exporter_role.png)](https://travis-ci.com/idealista/prometheus_oracle_exporter_role)
 [![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.prometheus_oracle_exporter_role-B62682.svg)](https://galaxy.ansible.com/idealista/prometheus_oracle_exporter_role)
 
 
@@ -35,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.prometheus_oracle_exporter_role
-  version: 1.0.0
+  version: 1.3.0
   name: prometheus_oracle_exporter
 ```
 
