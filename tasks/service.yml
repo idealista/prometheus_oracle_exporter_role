@@ -2,7 +2,7 @@
 
 - name: ORACLE_EXPORTER | Copy Daemon script
   template:
-    src: oracledb_exporter.service.j2
+    src: "{{ oracle_service_template_file }}"
     dest: /etc/systemd/system/oracledb_exporter.service
     mode: 0644
   notify: restart oracle_exporter
